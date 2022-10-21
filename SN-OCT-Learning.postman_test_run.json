@@ -1,0 +1,173 @@
+{
+	"id": "49063533-9446-4837-b189-6a8401c99724",
+	"name": "SN-OCT-Learning",
+	"timestamp": "2022-10-19T05:17:05.178Z",
+	"collection_id": "23796395-900401c5-cbe1-4057-9ed5-68d5b642dd02",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 5,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8d1e6ac7-5900-4ceb-a957-631e30728c6a",
+			"name": "Create new Incident",
+			"url": "https://dev120567.service-now.com/api/now/table/incident",
+			"time": 751,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code check": true
+			},
+			"testPassFailCounts": {
+				"Status code check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				751
+			],
+			"allTests": [
+				{
+					"Status code check": true
+				}
+			]
+		},
+		{
+			"id": "ae2ed689-1ba1-44bc-9a5e-fcb85e72f6fb",
+			"name": "GetRequestBy_sys_id",
+			"url": "https://dev120567.service-now.com/api/now/table/incident/89333fb2972211102756318c1253afac",
+			"time": 711,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				711
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "61933111-e805-4384-be1c-8f3578e15806",
+			"name": "Update the description",
+			"url": "https://dev120567.service-now.com/api/now/table/incident/89333fb2972211102756318c1253afac",
+			"time": 721,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				721
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ba7e4c30-e176-43d4-bb84-06ade586b488",
+			"name": "Update the short_description",
+			"url": "https://dev120567.service-now.com/api/now/table/incident/89333fb2972211102756318c1253afac",
+			"time": 725,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				725
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "613c8506-5f4f-4d58-8a13-388f28cc1417",
+			"name": "New Request",
+			"url": "https://dev120567.service-now.com/api/now/table/incident/89333fb2972211102756318c1253afac",
+			"time": 435,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				435
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3343,
+	"collection": {
+		"requests": [
+			{
+				"id": "8d1e6ac7-5900-4ceb-a957-631e30728c6a",
+				"method": "POST"
+			},
+			{
+				"id": "ae2ed689-1ba1-44bc-9a5e-fcb85e72f6fb",
+				"method": "GET"
+			},
+			{
+				"id": "61933111-e805-4384-be1c-8f3578e15806",
+				"method": "PUT"
+			},
+			{
+				"id": "ba7e4c30-e176-43d4-bb84-06ade586b488",
+				"method": "PATCH"
+			},
+			{
+				"id": "613c8506-5f4f-4d58-8a13-388f28cc1417",
+				"method": "DELETE"
+			}
+		]
+	}
+}
