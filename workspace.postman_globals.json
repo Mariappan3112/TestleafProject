@@ -1,0 +1,21 @@
+{
+	"id": "a2904754-2efa-488d-8eef-18eed46956e7",
+	"values": [
+		{
+			"key": "G_Sysid",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "issueID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-10-29T08:12:48.875Z",
+	"_postman_exported_using": "Postman/10.0.38"
+}

@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "f0008d80-5214-41b4-ac13-17a5ec414e00",
+		"name": "JIRAProjectLearning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23796395"
+	},
+	"item": [
+		{
+			"name": "CreateIssue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Issue created Successfully\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"var Res=pm.response.json();\r",
+							"var id=Res.id;\r",
+							"console.log(id);\r",
+							"pm.globals.set(\"issueID\",id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"TES\"\r\n        },\r\n        \"summary\": \"create another issue in TES project through API\",\r\n        \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n        \"issuetype\": {\r\n            \"name\": \"Bug\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issue/",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/search?JQL =project=”TES”",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"search"
+					],
+					"query": [
+						{
+							"key": "JQL ",
+							"value": "project=”TES”"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListAll_Issues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issuetype",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Particular_Issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issue/{{issueID}}",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issue",
+						"{{issueID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit_Issue_ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"description\": \"Issue updated via RestAssured on Oct 29 2022 --second time\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issue/{{issueID}}",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issue",
+						"{{issueID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchWith_ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issue/{{issueID}}",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issue",
+						"{{issueID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Issue_ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{MyJIRAURI}}/{{REST}}/issue/{{issueID}}",
+					"host": [
+						"{{MyJIRAURI}}"
+					],
+					"path": [
+						"{{REST}}",
+						"issue",
+						"{{issueID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "U8m8zBWblbzOWFyrPY4988A4",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "smariappanmech@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "REST",
+			"value": "rest/api/2",
+			"type": "string"
+		}
+	]
+}
